@@ -10,28 +10,30 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// This abstract class must be extended by models that represents a value
     /// for an entity's attribute.
     /// <br/>
-    /// A <see cref="EAVAttributeBase"/> is the composition of an <see cref="EAVAttributeBase"/>
-    /// instance and an <see cref="EAVEntityBase"/> instance.
+    /// A <see cref="IEAVAttribute"/> is the composition of an <see cref="IEAVAttribute"/>
+    /// instance and an <see cref="IEAVEntity"/> instance.
     /// <br/>
-    /// The <see cref="EAVValueBase"/> stores the actual value as a raw string. The
+    /// The <see cref="IEAVValue{TEntity, TAttribute}"/> stores the actual value as a raw string. The
     /// <see cref="IEAVValueConverter{T}"/> implementations will convert those values
-    /// accordingly to the attribute's <see cref="EAVAttributeBase.ValueKind"/> property.
+    /// accordingly to the attribute's <see cref="IEAVAttribute.ValueKind"/> property.
     /// </summary>
-    public abstract class EAVValueBase
+    public interface IEAVValue<TEntity, TAttribute>
+        where TEntity : class
+        where TAttribute : IEAVAttribute
     {
         /// <summary>
         /// The value as stored in raw format.
         /// </summary>
-        public string? RawValue { get; set; }
+        string? RawValue { get; set; }
 
         /// <summary>
         /// The attribute for witch the value is set
         /// </summary>
-        public EAVAttributeBase? Attribute { get; set; }
+        TAttribute? Attribute { get; set; }
 
         /// <summary>
         /// The entity for witch the value is set
         /// </summary>
-        public EAVEntityBase? Entity { get; set; }
+        TEntity? Entity { get; set; }
     }
 }
