@@ -37,21 +37,21 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// |_______________|            |__________________|
     /// </code>
     /// </summary>
-    public abstract class EAVAttributeBase
+    public interface IEAVAttribute
     {
         /// <summary>
         /// The name of the attribute, should be considered as a property name and should be unique for an entity.
         /// </summary>
-        public virtual string? AttributeName { get; set; }
+        string? AttributeName { get; set; }
 
         /// <summary>
-        /// The type of value the <see cref="EAVValueBase"/> for this attribute should store. See <see cref="EAVValueKind"/> for more information.
+        /// The type of value the <see cref="IEAVValue{TEntity, TAttribute}"/> for this attribute should store. See <see cref="EAVValueKind"/> for more information.
         /// </summary>
-        public EAVValueKind ValueKind { get; set; }
+        EAVValueKind ValueKind { get; set; }
 
         /// <summary>
         /// Defines the type of list used to hold the values. See <see cref="EAVValueListKind"/> for more information.
         /// </summary>
-        public EAVValueListKind ValueListKind { get; set; }
+        EAVValueListKind ValueListKind { get; set; }
     }
 }

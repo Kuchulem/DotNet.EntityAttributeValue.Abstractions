@@ -10,14 +10,14 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     {
         IEAVValueConverterProvider Register<T>(EAVValueKind valueKind, IEAVValueConverter<T> converter);
 
-        IEAVValueConverterProvider Register<T>(EAVAttributeBase attribute, IEAVValueConverter<T> converter);
+        IEAVValueConverterProvider Register<T>(IEAVAttribute attribute, IEAVValueConverter<T> converter);
 
         IEAVValueConverter<T> GetConverter<T>(EAVValueKind valueKind);
 
-        IEAVValueConverter<T> GetConverter<T>(EAVAttributeBase attribute);
+        IEAVValueConverter<T> GetConverter<T>(IEAVAttribute attribute);
 
         bool TryGetConverter<T>(EAVValueKind valueKind, out IEAVValueConverter<T>? converter);
 
-        bool TryGetConverter<T>(EAVAttributeBase attribute, out IEAVValueConverter<T>? converter);
+        bool TryGetConverter<T>(IEAVAttribute attribute, out IEAVValueConverter<T>? converter);
     }
 }

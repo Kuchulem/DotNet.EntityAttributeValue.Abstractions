@@ -4,6 +4,39 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <BaseOutputPath></BaseOutputPath>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>..\..\doc\Kuchulem.DotNet.EntityAttributeValue.EFCore.xml</DocumentationFile>
+    <SignAssembly>False</SignAssembly>
+    <Title>Kuchulem's EntityAttributeValue abstractions</Title>
+    <Version>1.0.0-alpha.1</Version>
+    <Authors>Kuchulem</Authors>
+    <Description>Interfaces and abstract classes used to implement EntityAttributeValue pattern</Description>
+    <Copyright>Kuchulem</Copyright>
+    <PackageProjectUrl>https://github.com/Kuchulem/DotNet.EntityAttributeValue</PackageProjectUrl>
+    <PackageIcon>kuchulem-logo-transparent-bg-128.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Kuchulem/DotNet.EntityAttributeValue.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\kuchulem-logo-transparent-bg-128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
