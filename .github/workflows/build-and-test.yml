@@ -2,7 +2,8 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
 name: Deploy dev
-
+env:
+  LIB_VERSION: ${{ vars.CURRENT_VERSION }}-alpha.${{ github.run_number }}
 on:
   pull_request:
     branches: [ "dev" ]
@@ -21,6 +22,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./src/Kuchulem.DotNet.EntityAttributeValue.Abstractions/
     - name: Build
-      run: dotnet build -p:VersionPrefix=$(LibVersion) --no-restore ./src/Kuchulem.DotNet.EntityAttributeValue.Abstractions/
+      run: dotnet build -p:VersionPrefix=$LIB_VERSION. --no-restore ./src/Kuchulem.DotNet.EntityAttributeValue.Abstractions/
     - name: Test
       run: dotnet test --no-build --verbosity normal ./src/Kuchulem.DotNet.EntityAttributeValue.Abstractions/
