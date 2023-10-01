@@ -11,7 +11,7 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// for an entity's attribute.
     /// <br/>
     /// A <see cref="IEAVAttribute"/> is the composition of an <see cref="IEAVAttribute"/>
-    /// instance and an <see cref="IEAVEntity"/> instance.
+    /// instance and an entity instance.
     /// <br/>
     /// The <see cref="IEAVValue{TEntity, TAttribute}"/> stores the actual value as a raw string. The
     /// <see cref="IEAVValueConverter{T}"/> implementations will convert those values
