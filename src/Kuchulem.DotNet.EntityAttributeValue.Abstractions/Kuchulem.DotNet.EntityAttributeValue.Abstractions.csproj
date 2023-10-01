@@ -9,7 +9,7 @@
     <DocumentationFile>..\..\doc\Kuchulem.DotNet.EntityAttributeValue.EFCore.xml</DocumentationFile>
     <SignAssembly>False</SignAssembly>
     <Title>Kuchulem's EntityAttributeValue abstractions</Title>
-    <Version>1.0.0-alpha.1</Version>
+    <Version>${PackageVersion}</Version>
     <Authors>Kuchulem</Authors>
     <Description>Interfaces and abstract classes used to implement EntityAttributeValue pattern</Description>
     <Copyright>Kuchulem - 2023</Copyright>
