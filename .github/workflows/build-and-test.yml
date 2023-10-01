@@ -5,7 +5,7 @@ name: Build, Test and publish
 env:
   BUILD_NUMBER: ${{ github.ref != 'refs/heads/main' && '' || github.run_number }}
   VERSION_NUMBER: ${{ vars.CURRENT_VERSION }}${{ github.ref == 'refs/heads/dev' && '-alpha.' || github.ref == 'refs/heads/release' && '-beta.' || '' }}
-  PUBLISH: ${{ github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/release' || github.ref == 'refs/heads/main' }}
+  PUBLISH: ${{ github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/release' && github.ref != 'refs/heads/main' && 'no' || 'yes' }}
 
 on:
   push:
@@ -35,10 +35,10 @@ jobs:
       with:
         nuget-version: latest
         nuget-api-key: ${{ secrets.NUGET_KEY }}
-      if: $PUBLISH
+      if: ${{ env.PUBLISH == 'yes' }}
     - name: Pack
       run: dotnet pack -p:VersionPrefix=$VERSION_NUMBER$BUILD_NUMBER ./src/Kuchulem.DotNet.EntityAttributeValue.Abstractions --no-build -o nuget/
-      if: $PUBLISH
+      if: ${{ env.PUBLISH == 'yes' }}
     - name: Publish
       run: dotnet nuget push nuget/ -s https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
-      if: $PUBLISH
+      if: ${{ env.PUBLISH == 'yes' }}
