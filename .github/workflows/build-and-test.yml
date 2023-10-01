@@ -19,8 +19,8 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./src/Kuchulem.DotNet.EntityAttributeValue.Abstractions/
     - name: Build
-      run: dotnet build -p:VersionPrefix=$(LibVersion) --no-restore
+      run: dotnet build -p:VersionPrefix=$(LibVersion) --no-restore ./src/Kuchulem.DotNet.EntityAttributeValue.Abstractions/
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal ./src/Kuchulem.DotNet.EntityAttributeValue.Abstractions/
