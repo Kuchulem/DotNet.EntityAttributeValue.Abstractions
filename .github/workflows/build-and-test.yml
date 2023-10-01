@@ -33,6 +33,6 @@ jobs:
         nuget-version: latest
         nuget-api-key: ${{ secrets.NUGET_KEY }}
     - name: Pack
-      run: dotnet pack -p:VersionPrefix=$VERSION_NUMBER$BUILD_NUMBER .\src\Kuchulem.DotNet.EntityAttributeValue.Abstractions --no-build -o nuget/
+      run: dotnet pack -p:VersionPrefix=$VERSION_NUMBER$BUILD_NUMBER ./src/Kuchulem.DotNet.EntityAttributeValue.Abstractions --no-build -o nuget/
     - name: Publish
       run: dotnet nuget push nuget/ -s https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
