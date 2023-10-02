@@ -4,81 +4,81 @@
         <name>Kuchulem.DotNet.EntityAttributeValue.Abstractions</name>
     </assembly>
     <members>
-        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind">
+        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind">
             <summary>
             The types of values.<br/>
             Each type will comme with specific validators and converters
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind.None">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind.None">
             <summary>
-            No type specified, will fallback to <see cref="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind.String"/>
+            No type specified, will fallback to <see cref="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind.String"/>
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind.Integer">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind.Integer">
             <summary>
             The stored value will be an <see cref="T:System.Int32"/> or a <see cref="T:System.Int64"/> (16 or 32 bits number).
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind.Boolean">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind.Boolean">
             <summary>
             The value will be a boolean (1 bit number).
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind.String">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind.String">
             <summary>
             The value will be considered a string.
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind.Entity">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind.Entity">
             <summary>
             The value will refer to an entity, meaning a model from the application.<br/>
-            An <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVValueConverter`1"/> implementation will be responsible to
-            fetch the right entity. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVValueConverter`1"/> for more
+            An <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter"/> implementation will be responsible to
+            fetch the right entity. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter"/> for more
             information.
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind.DateTime">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind.DateTime">
             <summary>
             The value is a to be treated as a DateTime
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind.Number">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind.Number">
             <summary>
             The value will be a <see cref="T:System.Single"/> or <see cref="T:System.Double"/> (32 bits or 64 bits)
             </summary>
         </member>
-        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueListKind">
+        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueListKind">
             <summary>
             Defines if the value is selected from a list and if
             it is a single or multiple selection
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueListKind.None">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueListKind.None">
             <summary>
             No list
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueListKind.Single">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueListKind.Single">
             <summary>
             List with single element selection (ie : radio or dropdown)
             </summary>
         </member>
-        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueListKind.Multiple">
+        <member name="F:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueListKind.Multiple">
             <summary>
             List with multiple element selection (ie : checkboxes or multiselect)
             </summary>
         </member>
-        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute">
+        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute">
             <summary>
             Abstract class to be extended by EAV Attributes models.
             
             An attribute is the configuration of a property stored in database.
             It defines :
             <list type="bullet">
-                <item><see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute.AttributeName"/> witch should be unique and describe the attribute. ie : <em>"BookDescription"</em>. It is comparable to a property name</item>
-                <item><see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute.ValueKind"/> witch describes the type of data stored. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind"/> for more information.</item>
-                <item><see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute.ValueListKind"/> witch defines if the data is selected from a list. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueListKind"/> for more information.</item>
+                <item><see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute.AttributeName"/> witch should be unique and describe the attribute. ie : <em>"BookDescription"</em>. It is comparable to a property name</item>
+                <item><see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute.ValueKind"/> witch describes the type of data stored. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind"/> for more information.</item>
+                <item><see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute.ValueListKind"/> witch defines if the data is selected from a list. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueListKind"/> for more information.</item>
             </list>
             <code>
              _______________              __________________
@@ -102,47 +102,156 @@
             </code>
             </summary>
         </member>
-        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute.AttributeName">
+        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute.AttributeName">
             <summary>
-            The name of the attribute, should be considered as a property name and should be unique for an entity.
+            The name of the attribute, should be considered as a property name and should be unique for an entity type.
             </summary>
         </member>
-        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute.ValueKind">
+        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute.ValueKind">
             <summary>
-            The type of value the <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVValue`2"/> for this attribute should store. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueKind"/> for more information.
+            The type of value the <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue"/> for this attribute should store. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind"/> for more information.
             </summary>
         </member>
-        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute.ValueListKind">
+        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute.ValueListKind">
             <summary>
-            Defines the type of list used to hold the values. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EAVValueListKind"/> for more information.
+            Defines the type of list used to hold the values. See <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueListKind"/> for more information.
             </summary>
         </member>
-        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVValue`2">
+        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute.Source">
+            <summary>
+            Application level information that can be used to select a converter or data source for a list of values.
+            </summary>
+        </member>
+        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavConverter">
+            <summary>
+            Interface for converters that convert independent <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue"/>
+            or <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue"/> from an <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavEntity"/>.<br/>
+            
+            </summary>
+        </member>
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavConverter.TryConvertValue(Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue,System.Object@)">
+            <summary>
+            Converts the <see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue.RawValue"/> of the value
+            parameter to a typed value in the converted parameter.
+            </summary>
+            <param name="value"></param>
+            <param name="converted"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavConverter.TryConvertEntityValues(Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavEntity,System.Collections.Generic.Dictionary{Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute,System.Object}@)">
+            <summary>
+            Converts all <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue"/> from an <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavEntity"/>
+            from the entity parameter and fills a <see cref="T:System.Collections.Generic.Dictionary`2"/>
+            with the value for each attribute.
+            </summary>
+            <param name="entity"></param>
+            <param name="converted"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavConverter.TryConvertEntityAttributeValue(Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute,Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavEntity,System.Object@)">
+            <summary>
+            Conveters the <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue"/>(s) associated to an
+            <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute"/> in a specific <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavEntity"/>.
+            </summary>
+            <param name="attribute"></param>
+            <param name="entity"></param>
+            <param name="converted"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavEntity">
+            <summary>
+            Interface to be implemented by entities that follow the
+            EntityAttributeValue pattern.
+            </summary>
+        </member>
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavEntity.GetEavValues">
+            <summary>
+            Gets the <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue"/>s attached to the <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute"/>s
+            of that entity instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter">
+            <summary>
+            Interface to be implemented to create a converter for a
+            <see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue.RawValue"/>.<br/>
+            The converter will implement a method to convert the raw value
+            to an expected type (<see cref="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter.Convert(System.String)"/>
+            and its pendant method to convert from a typed value to the
+            raw value (<see cref="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter.ConvertBack(System.Object)"/>)
+            </summary>
+        </member>
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter.Convert(System.String)">
+            <summary>
+            COnverts a raw value from <see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue.RawValue"/>
+            to a value of the typeparam of the implementation.
+            </summary>
+            <param name="value"></param>
+            <returns>The converted and casted value.</returns>
+        </member>
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter.ConvertBack(System.Object)">
+            <summary>
+            Converts a value to a raw value for
+            <see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue.RawValue"/>.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverterProvider">
+            <summary>
+            Factory for the <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverterProvider"/> implementations.<br/>
+            Converters can be registered for a <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.EavValueKind"/> or
+            an <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute"/> validator.
+            </summary>
+        </member>
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverterProvider.Register(System.Func{Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute,System.Boolean},Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter)">
+            <summary>
+            Registers a <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter"/> for any
+            attribute that matches the validator (returns <em>true</em>).
+            </summary>
+            <param name="validator"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverterProvider.GetConverter(Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute)">
+            <summary>
+            Gets a <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter"/> for the attribute,
+            using registered validators. If none found, SHOULD throw an exception.
+            </summary>
+            <param name="attribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverterProvider.TryGetConverter(Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute,Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter@)">
+            <summary>
+            Try get a <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter"/> for the
+            <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute"/> matching a registered validator.
+            If non found, returns false.
+            </summary>
+            <param name="attribute"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue">
             <summary>
             This abstract class must be extended by models that represents a value
             for an entity's attribute.
             <br/>
-            A <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute"/> is the composition of an <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute"/>
-            instance and an <see cref="!:IEAVEntity"/> instance.
+            A <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute"/> is the composition of an <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavAttribute"/>
+            instance and an <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavEntity"/> instance.
             <br/>
-            The <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVValue`2"/> stores the actual value as a raw string. The
-            <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVValueConverter`1"/> implementations will convert those values
-            accordingly to the attribute's <see cref="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVAttribute.ValueKind"/> property.
+            The <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue"/> stores the actual value as a raw string. The
+            <see cref="T:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavRawValueConverter"/> implementations will convert those values
+            accordingly to the attribute from <see cref="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue.GetEavAttribute"/>.
             </summary>
         </member>
-        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVValue`2.RawValue">
+        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue.RawValue">
             <summary>
             The value as stored in raw format.
             </summary>
         </member>
-        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVValue`2.Attribute">
+        <member name="M:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEavValue.GetEavAttribute">
             <summary>
-            The attribute for witch the value is set
-            </summary>
-        </member>
-        <member name="P:Kuchulem.DotNet.EntityAttributeValue.Abstractions.IEAVValue`2.Entity">
-            <summary>
-            The entity for witch the value is set
+            Gets the attribute for witch the value is set
             </summary>
         </member>
     </members>

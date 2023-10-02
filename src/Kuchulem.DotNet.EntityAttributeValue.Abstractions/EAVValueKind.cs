@@ -10,10 +10,10 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// The types of values.<br/>
     /// Each type will comme with specific validators and converters
     /// </summary>
-    public enum EAVValueKind
+    public enum EavValueKind
     {
         /// <summary>
-        /// No type specified, will fallback to <see cref="EAVValueKind.String"/>
+        /// No type specified, will fallback to <see cref="EavValueKind.String"/>
         /// </summary>
         None = 0,
         /// <summary>
@@ -30,8 +30,8 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
         String = 3,
         /// <summary>
         /// The value will refer to an entity, meaning a model from the application.<br/>
-        /// An <see cref="IEAVValueConverter{T}"/> implementation will be responsible to
-        /// fetch the right entity. See <see cref="IEAVValueConverter{T}"/> for more
+        /// An <see cref="IEavRawValueConverter"/> implementation will be responsible to
+        /// fetch the right entity. See <see cref="IEavRawValueConverter"/> for more
         /// information.
         /// </summary>
         Entity = 5,

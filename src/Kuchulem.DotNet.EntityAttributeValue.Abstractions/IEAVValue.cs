@@ -10,30 +10,23 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// This abstract class must be extended by models that represents a value
     /// for an entity's attribute.
     /// <br/>
-    /// A <see cref="IEAVAttribute"/> is the composition of an <see cref="IEAVAttribute"/>
-    /// instance and an <see cref="IEAVEntity"/> instance.
+    /// A <see cref="IEavAttribute"/> is the composition of an <see cref="IEavAttribute"/>
+    /// instance and an <see cref="IEavEntity"/> instance.
     /// <br/>
-    /// The <see cref="IEAVValue{TEntity, TAttribute}"/> stores the actual value as a raw string. The
-    /// <see cref="IEAVValueConverter{T}"/> implementations will convert those values
-    /// accordingly to the attribute's <see cref="IEAVAttribute.ValueKind"/> property.
+    /// The <see cref="IEavValue"/> stores the actual value as a raw string. The
+    /// <see cref="IEavRawValueConverter"/> implementations will convert those values
+    /// accordingly to the attribute from <see cref="IEavValue.GetEavAttribute"/>.
     /// </summary>
-    public interface IEAVValue<TEntity, TAttribute>
-        where TEntity : class
-        where TAttribute : IEAVAttribute
+    public interface IEavValue
     {
         /// <summary>
         /// The value as stored in raw format.
         /// </summary>
-        string? RawValue { get; set; }
+        string? RawValue { get; }
 
         /// <summary>
-        /// The attribute for witch the value is set
+        /// Gets the attribute for witch the value is set
         /// </summary>
-        TAttribute? Attribute { get; set; }
-
-        /// <summary>
-        /// The entity for witch the value is set
-        /// </summary>
-        TEntity? Entity { get; set; }
+        IEavAttribute GetEavAttribute();
     }
 }
