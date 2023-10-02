@@ -10,7 +10,7 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// Defines if the value is selected from a list and if
     /// it is a single or multiple selection
     /// </summary>
-    public enum EAVValueListKind
+    public enum EavValueListKind
     {
         /// <summary>
         /// No list

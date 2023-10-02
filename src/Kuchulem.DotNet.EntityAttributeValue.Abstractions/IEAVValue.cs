@@ -10,16 +10,16 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// This abstract class must be extended by models that represents a value
     /// for an entity's attribute.
     /// <br/>
-    /// A <see cref="IEAVAttribute"/> is the composition of an <see cref="IEAVAttribute"/>
+    /// A <see cref="IEavAttribute"/> is the composition of an <see cref="IEavAttribute"/>
     /// instance and an entity instance.
     /// <br/>
-    /// The <see cref="IEAVValue{TEntity, TAttribute}"/> stores the actual value as a raw string. The
-    /// <see cref="IEAVValueConverter{T}"/> implementations will convert those values
-    /// accordingly to the attribute's <see cref="IEAVAttribute.ValueKind"/> property.
+    /// The <see cref="IEavValue{TEntity, TAttribute}"/> stores the actual value as a raw string. The
+    /// <see cref="IEavValueConverter{T}"/> implementations will convert those values
+    /// accordingly to the attribute's <see cref="IEavAttribute.ValueKind"/> property.
     /// </summary>
-    public interface IEAVValue<TEntity, TAttribute>
+    public interface IEavValue<TEntity, TAttribute>
         where TEntity : class
-        where TAttribute : IEAVAttribute
+        where TAttribute : IEavAttribute
     {
         /// <summary>
         /// The value as stored in raw format.
