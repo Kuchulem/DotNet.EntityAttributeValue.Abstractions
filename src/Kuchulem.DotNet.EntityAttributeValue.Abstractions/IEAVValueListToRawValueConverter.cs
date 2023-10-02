@@ -10,7 +10,7 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// Converts a string raw value (as stored in DB) to a list of strings and
     /// back
     /// </summary>
-    public interface IEAVValueListToRawValueConverter
+    public interface IEavValueListToRawValueConverter
     {
         /// <summary>
         /// Converts a list of strings to a string raw value

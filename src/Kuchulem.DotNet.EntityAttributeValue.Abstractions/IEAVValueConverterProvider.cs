@@ -10,46 +10,46 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// Interface for converter provider.<br/>
     /// Provides methods to register and retrieve converters
     /// </summary>
-    public interface IEAVValueConverterProvider
+    public interface IEavValueConverterProvider
     {
         /// <summary>
-        /// Registers a converter for a <see cref="EAVValueKind"/>
+        /// Registers a converter for a <see cref="EavValueKind"/>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="valueKind"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        IEAVValueConverterProvider Register<T>(EAVValueKind valueKind, IEAVValueConverter<T> converter);
+        IEavValueConverterProvider Register<T>(EavValueKind valueKind, IEavValueConverter<T> converter);
 
         /// <summary>
-        /// Registers a converter for an <see cref="IEAVAttribute"/>
+        /// Registers a converter for an <see cref="IEavAttribute"/>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="attribute"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        IEAVValueConverterProvider Register<T>(IEAVAttribute attribute, IEAVValueConverter<T> converter);
+        IEavValueConverterProvider Register<T>(IEavAttribute attribute, IEavValueConverter<T> converter);
 
         /// <summary>
-        /// Gets a converter for a <see cref="EAVValueKind"/> that was 
+        /// Gets a converter for a <see cref="EavValueKind"/> that was 
         /// previously registered.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="valueKind"></param>
         /// <returns></returns>
-        IEAVValueConverter<T> GetConverter<T>(EAVValueKind valueKind);
+        IEavValueConverter<T> GetConverter<T>(EavValueKind valueKind);
 
         /// <summary>
-        /// Gets a converter for a <see cref="IEAVAttribute"/> that was 
+        /// Gets a converter for a <see cref="IEavAttribute"/> that was 
         /// previously registered.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="attribute"></param>
         /// <returns></returns>
-        IEAVValueConverter<T> GetConverter<T>(IEAVAttribute attribute);
+        IEavValueConverter<T> GetConverter<T>(IEavAttribute attribute);
 
         /// <summary>
-        /// Tries to get a converter for a <see cref="EAVValueKind"/>and store 
+        /// Tries to get a converter for a <see cref="EavValueKind"/>and store 
         /// it in the <em>converter</em> parameter.<br/>
         /// Returns <em>True</em> if a converter was found, <em>false</em>
         /// otherwise.
@@ -58,10 +58,10 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
         /// <param name="valueKind"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        bool TryGetConverter<T>(EAVValueKind valueKind, out IEAVValueConverter<T>? converter);
+        bool TryGetConverter<T>(EavValueKind valueKind, out IEavValueConverter<T>? converter);
 
         /// <summary>
-        /// Tries to get a converter for a <see cref="IEAVAttribute"/>and store
+        /// Tries to get a converter for a <see cref="IEavAttribute"/>and store
         /// it in the <em>converter</em> parameter.<br/>
         /// Returns <em>True</em> if a converter was found, <em>false</em>
         /// otherwise.
@@ -70,6 +70,6 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
         /// <param name="attribute"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        bool TryGetConverter<T>(IEAVAttribute attribute, out IEAVValueConverter<T>? converter);
+        bool TryGetConverter<T>(IEavAttribute attribute, out IEavValueConverter<T>? converter);
     }
 }

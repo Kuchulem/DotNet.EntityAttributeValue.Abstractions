@@ -11,7 +11,7 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// a usable value and back
     /// </summary>
     /// <typeparam name="T">The expected type for this value</typeparam>
-    public interface IEAVValueConverter<T>
+    public interface IEavValueConverter<T>
     {
         /// <summary>
         /// Converts a string value to a usable value
