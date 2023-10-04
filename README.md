@@ -1,5 +1,8 @@
 # DotNet.EntityAttributeValue.Abstractions
 
+[![NuGet Version](https://img.shields.io/nuget/v/Kuchulem.DotNet.EntityAttributeValue.Abstractions?label=Nuget%20version&logo=nuget)](https://www.nuget.org/packages/Kuchulem.DotNet.EntityAttributeValue.Abstractions/)
+[![NuGet Preversion](https://img.shields.io/nuget/vpre/Kuchulem.DotNet.EntityAttributeValue.Abstractions?label=Nuget%20prerelease&logo=nuget)](https://www.nuget.org/packages/Kuchulem.DotNet.EntityAttributeValue.Abstractions/)
+
 This library provides abstractions for the
 [Entity-Attribute-Value model](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model).
 
