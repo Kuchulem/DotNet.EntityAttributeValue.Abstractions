@@ -13,13 +13,11 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
     /// A <see cref="IEavAttribute"/> is the composition of an <see cref="IEavAttribute"/>
     /// instance and an entity instance.
     /// <br/>
-    /// The <see cref="IEavValue{TEntity, TAttribute}"/> stores the actual value as a raw string. The
-    /// <see cref="IEavValueConverter{T}"/> implementations will convert those values
+    /// The <see cref="IEavValue"/> stores the actual value as a raw string. The
+    /// <see cref="IEavRawValueConverter"/> implementations will convert those values
     /// accordingly to the attribute's <see cref="IEavAttribute.ValueKind"/> property.
     /// </summary>
-    public interface IEavValue<TEntity, TAttribute>
-        where TEntity : class
-        where TAttribute : IEavAttribute
+    public interface IEavValue
     {
         /// <summary>
         /// The value as stored in raw format.
@@ -29,11 +27,11 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
         /// <summary>
         /// The attribute for witch the value is set
         /// </summary>
-        TAttribute? Attribute { get; set; }
+        IEavAttribute? GetEavAttribute();
 
         /// <summary>
         /// The entity for witch the value is set
         /// </summary>
-        TEntity? Entity { get; set; }
+        object GetEntity();
     }
 }
