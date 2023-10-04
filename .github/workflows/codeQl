@@ -4,8 +4,10 @@
 name: CodeQl
 
 on:
+  push:
+    branches: ["dev", "release"]
   pull_request:
-    branches: [ "release", "dev" ]
+    branches: ["dev", "release"]
 
 jobs:
   analyze:
