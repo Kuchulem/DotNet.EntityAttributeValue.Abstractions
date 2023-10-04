@@ -45,7 +45,7 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
         string? AttributeName { get; set; }
 
         /// <summary>
-        /// The type of value the <see cref="IEavValue{TEntity, TAttribute}"/> for this attribute should store. See <see cref="EavValueKind"/> for more information.
+        /// The type of value the <see cref="IEavValue"/> for this attribute should store. See <see cref="EavValueKind"/> for more information.
         /// </summary>
         EavValueKind ValueKind { get; set; }
 

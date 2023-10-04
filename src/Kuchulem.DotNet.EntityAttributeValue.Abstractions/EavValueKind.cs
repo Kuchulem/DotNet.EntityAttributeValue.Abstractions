@@ -30,8 +30,8 @@ namespace Kuchulem.DotNet.EntityAttributeValue.Abstractions
         String = 3,
         /// <summary>
         /// The value will refer to an entity, meaning a model from the application.<br/>
-        /// An <see cref="IEavValueConverter{T}"/> implementation will be responsible to
-        /// fetch the right entity. See <see cref="IEavValueConverter{T}"/> for more
+        /// An <see cref="IEavRawValueConverter"/> implementation will be responsible to
+        /// fetch the right entity. See <see cref="IEavRawValueConverter"/> for more
         /// information.
         /// </summary>
         Entity = 5,
